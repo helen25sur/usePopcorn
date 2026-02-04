@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Box from './Box';
+import MovieList from './MovieList';
 
 export default function Main({ average, movies, watched }) {
 
@@ -14,20 +15,7 @@ export default function Main({ average, movies, watched }) {
     <main className="main container flex justify-center gap-6 m-auto p-6 text-white">
       <Box setIsOpen={setIsOpen1} isOpen={isOpen1}>
         {isOpen1 && (
-          <ul className="list">
-            {movies?.map((movie) => (
-              <li key={movie.imdbID}>
-                <img src={movie.Poster} alt={`${movie.Title} poster`} />
-                <h3>{movie.Title}</h3>
-                <div>
-                  <p>
-                    <span>🗓</span>
-                    <span>{movie.Year}</span>
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <MovieList movies={movies} />
         )}
       </Box>
 
