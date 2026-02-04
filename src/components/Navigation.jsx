@@ -1,7 +1,7 @@
 export default function Navigation({ query, onQuery, length }) {
   return (
     <nav className="nav-bar bg-indigo-700 text-white py-5 px-3  flex items-center justify-between rounded-md">
-      <div className="logo flex text-2xl">
+      <div className="logo flex text-2xl font-bold">
         <span role="img">🍿</span>
         <h1>usePopcorn</h1>
       </div>
