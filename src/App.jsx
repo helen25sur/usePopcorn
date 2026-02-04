@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import './App.css'
+import Navigation from './components/Navigation';
 const tempMovieData = [
   {
     imdbID: "tt1375666",
@@ -63,25 +64,10 @@ function App() {
   const avgRuntime = average(watched.map((movie) => movie.runtime));
 
   return (
-    <>
-      <nav className="nav-bar">
-        <div className="logo">
-          <span role="img">🍿</span>
-          <h1>usePopcorn</h1>
-        </div>
-        <input
-          className="search"
-          type="text"
-          placeholder="Search movies..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <p className="num-results">
-          Found <strong>{movies.length}</strong> results
-        </p>
-      </nav>
+    <div className="bg-neutral-800 w-full p-3">
+      <Navigation query={query} onQuery={setQuery} length={movies.length} />
 
-      <main className="main">
+      <main className="main container">
         <div className="box">
           <button
             className="btn-toggle"
@@ -164,7 +150,7 @@ function App() {
           )}
         </div>
       </main>
-    </>
+    </div>
   );
 }
 
