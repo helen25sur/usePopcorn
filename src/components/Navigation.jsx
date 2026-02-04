@@ -6,7 +6,7 @@ export default function Navigation({ query, onQuery, length }) {
         <h1>usePopcorn</h1>
       </div>
       <input
-        className="search bg-indigo-600 px-3 py-2 w-2xs rounded-sm"
+        className="search bg-indigo-600 px-3 py-2 w-80 rounded-sm"
         type="text"
         placeholder="Search movies..."
         value={query}

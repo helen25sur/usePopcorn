@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Box from './Box';
 
 export default function Main({ average, movies, watched }) {
 
@@ -11,13 +12,7 @@ export default function Main({ average, movies, watched }) {
 
   return (
     <main className="main container flex justify-center gap-6 m-auto p-6 text-white">
-      <div className="box bg-neutral-700 w-[45%] rounded-md p-4">
-        <button
-          className="btn-toggle"
-          onClick={() => setIsOpen1((open) => !open)}
-        >
-          {isOpen1 ? "–" : "+"}
-        </button>
+      <Box setIsOpen={setIsOpen1} isOpen={isOpen1}>
         {isOpen1 && (
           <ul className="list">
             {movies?.map((movie) => (
@@ -34,15 +29,9 @@ export default function Main({ average, movies, watched }) {
             ))}
           </ul>
         )}
-      </div>
+      </Box>
 
-      <div className="box bg-neutral-700 w-[45%] rounded-md p-4">
-        <button
-          className="btn-toggle"
-          onClick={() => setIsOpen2((open) => !open)}
-        >
-          {isOpen2 ? "–" : "+"}
-        </button>
+      <Box setIsOpen={setIsOpen2} isOpen={isOpen2}>
         {isOpen2 && (
           <>
             <div className="summary p-4 bg-neutral-600 rounded-md">
@@ -91,7 +80,7 @@ export default function Main({ average, movies, watched }) {
             </ul>
           </>
         )}
-      </div>
+      </Box>
     </main>
   )
 }
