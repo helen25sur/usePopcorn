@@ -3,7 +3,13 @@ import { useState } from 'react';
 import './App.css';
 
 import Navigation from './components/Navigation';
+import Search from './components/Search';
+import NumResults from './components/NumResults';
 import Main from './components/Main';
+import Box from './components/Box';
+import MovieList from './components/MovieList';
+import Stats from './components/Stats';
+import WatchedList from './components/WatchedList';
 
 const tempMovieData = [
   {
@@ -62,10 +68,22 @@ function App() {
 
 
   return (
-    <div className="bg-neutral-800 w-full p-3">
-      <Navigation query={query} onQuery={setQuery} length={movies.length} />
+    <div className="bg-neutral-800 w-full h-screen p-3">
+      <Navigation query={query} onQuery={setQuery} length={movies.length}>
+        <Search query={query} onQuery={setQuery} />
+        <NumResults length={movies.length} />
+      </Navigation>
 
-      <Main average={average} movies={movies} watched={watched} />
+      <Main average={average} movies={movies} watched={watched}>
+        <Box>
+          <MovieList movies={movies} />
+        </Box>
+
+        <Box>
+          <Stats average={average} watched={watched} />
+          <WatchedList watched={watched} />
+        </Box>
+      </Main>
     </div>
   );
 }

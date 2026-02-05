@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function WatchedListItem({ movie }) {
   return (
     <li className='grid grid-flow-col grid-rows-2 grid-cols-5 gap-4 items-center' key={movie.imdbID}>

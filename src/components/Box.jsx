@@ -1,4 +1,8 @@
-export default function Box({ setIsOpen, isOpen, children }) {
+import { useState } from 'react';
+
+export default function Box({ children }) {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
     <div className="box flex flex-col bg-neutral-700 w-[45%] rounded-md p-4">
       <button
@@ -8,7 +12,7 @@ export default function Box({ setIsOpen, isOpen, children }) {
         {isOpen ? "-" : "+"}
       </button>
 
-      {children}
+      {isOpen && children}
     </div>
   )
 }
