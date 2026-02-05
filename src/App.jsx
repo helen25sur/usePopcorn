@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './App.css';
-
 import Navigation from './components/Navigation';
 import Search from './components/Search';
 import NumResults from './components/NumResults';
@@ -10,6 +8,7 @@ import Box from './components/Box';
 import MovieList from './components/MovieList';
 import Stats from './components/Stats';
 import WatchedList from './components/WatchedList';
+import StarRating from './components/StarRating';
 
 const tempMovieData = [
   {
@@ -82,6 +81,7 @@ function App() {
         <Box>
           <Stats average={average} watched={watched} />
           <WatchedList watched={watched} />
+          {/* <StarRating maxRating={10} defaultRating={3} /> */}
         </Box>
       </Main>
     </div>
