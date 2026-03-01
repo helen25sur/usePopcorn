@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Navigation from './components/Navigation';
 import Search from './components/Search';
@@ -65,6 +65,11 @@ function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
 
+  useEffect(function () {
+    fetch(`http://www.omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&s=interstellar`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search))
+  }, [])
 
   return (
     <div className="bg-neutral-800 w-full h-screen p-3">
