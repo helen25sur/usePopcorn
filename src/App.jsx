@@ -72,7 +72,7 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-neutral-800 w-full h-screen p-3">
+    <div className="bg-neutral-800 w-full min-h-screen p-3">
       <Navigation query={query} onQuery={setQuery} length={movies.length}>
         <Search query={query} onQuery={setQuery} />
         <NumResults length={movies.length} />
